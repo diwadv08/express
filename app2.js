@@ -1,9 +1,11 @@
-const express=require('express')
-const path=require('path')
-const multer=require('multer')
+const express=require('express');
+const path=require('path');
+const multer=require('multer');
+const fs=require('fs')
 const app=express();
 app.set('view engine','ejs');
-app.use('/uploads',express.static('uploads'))
+
+app.use('/jj',express.static('uploads'))
 const MyMulter=multer.diskStorage({
     destination:'uploads',
     filename:(req,file,cb)=>{
@@ -20,6 +22,17 @@ app.get('/',(req,res)=>{
 app.post('/submit',file_upload.single('img'),(req,res)=>{
     const {Name,Age,Mobile}=req.body;
     const {filename}=req.file;
-    res.render(path.join(__dirname,'response'),{myData:{Name,Age,Mobile,filename}})
+    if(fs.existsSync(path.join(__dirname,'uploads','Img-1733836980690.jpg'))){
+        fs.unlinkSync(path.join(__dirname,'uploads','Img-1733836980690.jpg'));
+        console.log('Deleted');
+    }
+    else{
+        console.log('File not Found');
+    }
+    res.redirect('/')
 })
+
+
 app.listen(8080)
+
+
