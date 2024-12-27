@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <form action="/edit_data" method="POST" class="p-3" enctype="multipart/form-data">
+        <h3>Edit User</h3>
+        <a href="/data" class="btn btn-danger">Go Back</a>
+            <div class="row">
+                <input type="text" value="<%=editData._id%>" name="id">
+                <div class="col-12 mt-3">
+                    <input type="text" class="form-control" placeholder="Enter Name" name="name" value="<%=editData.name%>">
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="text" class="form-control" placeholder="Enter Age" name="age" value="<%=editData.age%>">
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="text" class="form-control" placeholder="Enter Gender" name="gender"  value="<%=editData.gender%>">
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="file" class="form-control" name="img">
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="submit" class="btn btn-success btn-block w-100">
+                </div>
+            </div>
+     
+    </form>

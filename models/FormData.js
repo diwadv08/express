@@ -4,8 +4,12 @@ const PostTable= mongoose.model('Post',{
         type:String,
         unique:true,
     },
-    age:String,
+    age:{
+        type:String,
+        required:true,
+    },
     gender:String,
+    img:String,
 })
 
 module.exports=PostTable;
