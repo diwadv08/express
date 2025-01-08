@@ -9,6 +9,7 @@ const PostTable= mongoose.model('Post',{
         required:true,
     },
     gender:String,
+    quantity:String,
     img:String,
 })
 
